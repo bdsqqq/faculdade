@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+
+    <title>Prova Parcial</title>
+</head>
+<body>
+    <header>
+        <span class="header--titulo">Turismo</span><br><br><br>
+    </header>
+
+    <main>
+        <form>
+                <span id="erroClasse"></span><br><span class="main--form--titulo">Classe: </span><select name="classe" id="classe">
+                <option value="0">-- Escolha a classe --</option>
+                <option value="1">Econômica</option>
+                <option value="2">Executiva</option>
+                <option value="3">1ª Classe </option>
+            </select><br>
+            
+
+            <span id="erroOrigem"></span><br><span class="main--form--titulo">Origem</span><br><br>
+                <input name="origem" id="oSp" type="radio" value="SP"><label for="SP">São Paulo</label><br>
+                <input name="origem" id="oBh" type="radio" value="BH"><label for="BH">Belo Horizonte</label><br>
+                <input name="origem" id="oRj" type="radio" value="RJ"><label for="RJ">Rio de Janeiro</label><br><br>
+                <br>
+                
+
+            <span id="erroDestino"></span><br><span class="main--form--titulo">Destino</span><br><br>
+                <input name="destino" id="dSp" type="radio" value="SP"><label for="SP">São Paulo</label><br>
+                <input name="destino" id="dBh" type="radio" value="BH"><label for="BH">Belo Horizonte</label><br>
+                <input name="destino" id="dRj" type="radio" value="RJ"><label for="RJ">Rio de Janeiro</label><br><br>
+                <br>
+                
+        
+            <span id="erroQtdPassageiros"></span><br><span class="main--form--titulo">Quantidade de Passageiros</span><br><br>
+                <input type="text" id="qtdPassageiros" name="qtdPassageiros"><br><br>
+                <br>
+            
+
+            <input type="button" id="calc" value="Calcular">
+        </form><br><br>
+        <span class="main--form--titulo">Resultado: </span><span id="resultado"></span>
+    </main>
+</body>
+</html>

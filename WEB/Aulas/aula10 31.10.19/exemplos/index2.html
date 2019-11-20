@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/alunos.js"></script>
+
+        <script>
+            $(function(){
+
+                $('#btnPesquisar').click(function(){
+                   let rgmPesquisado = $('#inputRgm').val();
+                   buscarRgm(rgmPesquisado);
+
+
+                   function buscarRgm(numero){
+                       let i = 0;
+                       let comprimento = info.length;
+                       let memoria = -1;
+                       let txt = ''
+
+                       while(i < comprimento){
+                            if(numero == info[i].rgm){
+                               memoria = i;
+                            }i++;
+                        }
+                        if(memoria != -1){
+                            txt = "RGM "+ info[memoria].rgm + "<br>" + "Nome "+ info[memoria].nome + "<br>" + "Sexo "+ info[memoria].sexo + "<br>"
+                        }else{
+                            txt = 'O RGM não existe'
+                        }
+
+                        $('#resultado').html(txt)
+                   }
+                
+                })
+
+
+               /* console.log(info[1]);
+                
+                $('#btnPesquisar').click(function(){
+                    console.log('clicou')
+
+                    let i = 0;
+                    let repete = true;
+
+
+                    while(repete == true){
+                        if ($('#inputRgm').val == info[i].rgm){
+                            $('#resultado').append("RGM "+ info[i].rgm + "<br>");
+                            $('#resultado').append("Nome "+ info[i].nome + "<br>")
+                            $('#resultado').append("Sexo "+ info[i].sexo + "<br>");
+                        repete = false;
+                        }else{
+                            i++
+                        }
+                    }
+                })*/
+                
+
+
+
+
+            })
+        
+        </script>
+    </head>
+    <body>
+        <div>
+            <form>
+                <input type="text" id="inputRgm">
+            </form>
+            <button id="btnPesquisar">Pesquisar</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div id="resultado"></div>
+    </body>
+</html>

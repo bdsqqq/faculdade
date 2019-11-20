@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="js/alunos.js"></script>
+        <script>
+            window.onload = () => {
+                
+                let mensagem = document.getElementById('mensagem');
+
+                console.log(mensagem)
+                
+                let conteudo = (info) => {
+                    let r = ""
+                    for(i = 0; i < info.lenght; i++){
+                        r =+ info[i].rgm +"<br>"+ info[i].rgm +"<br>"+ info[i].rgm +"<br>"
+                    }
+                    return r;
+                } 
+          
+                mensagem.innerHTML = conteudo;
+                       
+            }
+
+        </script>
+    </head>
+    <body>
+        <div id="mensagem"></div>
+    </body>
+</html>

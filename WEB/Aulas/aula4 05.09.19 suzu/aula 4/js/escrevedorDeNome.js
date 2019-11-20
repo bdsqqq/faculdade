@@ -1,0 +1,1 @@
+document.write("<h1>N esquece que teu nome é: "+nome+"</h1>");

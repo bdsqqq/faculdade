@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: #dff9fb;
+}
+
+h1{
+    text-align: center;
+    font-weight: 700;
+    padding: 1rem;
+    font-size: 3rem;
+}
+
+main{
+    display: grid;
+    grid-auto-flow: row;
+    padding: .8em .4em;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 15rem));
+    justify-content: center;
+}
+
+.caixa{
+    padding: 1rem;
+    height: 9rem;
+    width: 10rem;
+    margin: 1rem auto;
+
+    border-radius: 4px;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.2);
+
+    color: white;
+    text-align: center;
+}
+
+.rgm{
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.aprovado{
+    background-color: #6ab04c;
+}
+
+.af{
+    background-color: #f9ca24;
+}
+
+.reprovado{
+    background-color: #eb4d4b;
+}

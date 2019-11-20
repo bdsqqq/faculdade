@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado</title>
+</head>
+<body>
+    <header>Monte Sua pizza</header>
+
+    <main>
+        <form action="">
+            <div id="wrapperDadosCliente">
+                <h2>Dados do Cliente</h2>
+                <span>Nome</span><br><br>
+                <input id="inputNome" type="text"><br><br>
+                <span>Telefone</span><br><br>
+                <input id="inputTelefone" type="text"><br><br>
+                <span>Endereço</span><br><br>
+                <input id="inputEndereco" type="text"><br><br>
+            </div>
+            <div id="logPedido">
+
+            </div>
+            <div id="wrapperDadosPedido">
+                    <h2>Dados do Pedido</h2>
+                    <span>Tamanho</span><br><br>
+                    <input name="tamanhoPizza" id="b" type="radio" value="brotinho"><label for="brotinho">brotinho</label>
+                    <input name="tamanhoPizza" id="m" type="radio" value="medio"><label for="medio">medio</label>
+                    <input name="tamanhoPizza" id="g" type="radio" value="grande"><label for="grande">grande</label><br><br>
+                    <span>Sabor</span><br><br>
+                    <select id="sabor">
+                        <option value="0">-- Escolha um sabor --</option>
+                        <option value="1">Mussarela </option>
+                        <option value="2">Calabresa </option>
+                        <option value="3">Frango com Catupiri </option>
+                    </select><br><br>
+                    <span>Ingrediente Extra</span><br><br>
+                    <input list="listaIngredienteExtra" name="ingrediente" id="ingredienteExtra"/>
+                        <datalist id="listaIngredienteExtra">
+                            <option value="Cebola">
+                            <option value="Tomate">
+                            <option value="Milho">
+                        </datalist><br><br>
+            </div>
+            <div id="wrapperFormaPagamento">
+                <h2>Dados do Pagamento</h2>
+                <span>Forma de Pagamento</span><br><br>
+                <select id="pagamento">
+                    <option value="">-- Escolha uma forma de pagamento --</option>
+                    <option value="1">Cartão de crédito </option>
+                    <option value="2">Cartão de débito </option>
+                    <option value="3">Dinheiro </option>
+                </select><br><br>
+
+                <input type="button" id="calc" value="Finalizar  Pedido" />
+            </div>
+
+        </form>
+    </main>
+</body>
+</html>

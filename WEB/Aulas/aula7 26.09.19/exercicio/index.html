@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <script src="js/script.js"></script>
+        <script src="js/jquery-3.4.1.min.js"></script>
+
+        <script>
+            $(function(){
+                $("#btnCalcular").click(function(){
+                    var vNome = $("#inputNome").val();
+                    var vRgm = $("#inputRgm").val();
+                    var vParcial = parseFloat($("#inputParcial").val());
+                    var vExercicios = parseFloat($("#inputExercicios").val());
+                    var vProjeto = parseFloat($("#inputProjeto").val());
+                    var vRegimental = parseFloat($("#inputRegimental").val());
+                    var vMedia = 0;
+
+                    var x = validaDados();
+                    if(x == true){
+                        vMedia = calcMedia(vParcial,vExercicios,vProjeto,vRegimental);
+
+                        $("#rNome").text($("#inputNome").val());
+                        $("#rRgm").text($("#inputRgm").val());
+                        $("#rParcial").text(vParcial);
+                        $("#rExercicios").text(vExercicios);
+                        $("#rProjeto").text(vProjeto);
+                        $("#rRegimental").text(vRegimental);
+                        $("#rMedia").text(vMedia);
+
+                        aprovar(vMedia);
+
+
+                        $("#inputNome").val("");
+                        $("#inputRgm").val("");
+                        $("#inputParcial").val("");
+                        $("#inputExercicios").val("");
+                        $("#inputProjeto").val("");
+                        $("#inputRegimental").val("");
+                    }
+                    else{
+                        console.log("Valida dados veio negativo");
+                    };
+                });
+            });
+
+            
+        </script>
+    </head>
+
+    <body>
+        <div class="wrapper"> <form>
+            <span id="resultado"></span><br><br>
+            Nome: <input type="text" value="Nome" id="inputNome"><br><br>
+            Rgm: <input type="text" value="Rgm" id="inputRgm"><br><br>
+            Parcial: <input type="text" value="Nota Parcial" id="inputParcial"><br><br>
+            Exercicios: <input type="text" value="Nota Exercicios" id="inputExercicios"><br><br>
+            Projeto: <input type="text" value="Nota Projeto" id="inputProjeto"><br><br>
+            Regimental: <input type="text" value="Nota Regimental" id="inputRegimental"><br><br>
+            <br><br><input type="button" value="Calcular" id="btnCalcular"><br>
+        </form>
+        <br>
+        <br>
+        <br>
+        <div id="divResultado">
+            <span>Seu nome é: </span> <span id="rNome"></span><br>
+            <span>Seu rgm é: </span><span id="rRgm"></span><br>
+            <span>Sua nota parcial é: </span><span id="rParcial"></span><br>
+            <span>Sua nota exercicios é: </span><span id="rExercicios"></span><br>
+            <span>Sua nota projeto é: </span><span id="rProjeto"></span><br>
+            <span>Sua nota regimental é: </span><span id="rRegimental"></span><br>
+            <span>Sua média é: </span><span id="rMedia"></span><br><br>
+            <span>Sua situação é:  </span><span id="rSituacao"></span><br><br>
+        </div>
+    </div>
+    </body>
+</html>

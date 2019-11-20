@@ -1,0 +1,18 @@
+form{
+    width: 300px;
+    height: auto;
+    background: pink;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 7px;
+
+}
+
+.nomedahora{
+    width: 300px;
+    height: auto;
+    background: yellow;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 7px;
+}

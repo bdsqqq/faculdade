@@ -1,0 +1,24 @@
+form{
+    width: 32rem;
+    height: auto;
+    background: rgb(224, 224, 224);
+    margin: auto;
+    padding: 2em;
+    border-radius: 7px;
+
+}
+
+div{
+    width: 36rem;
+    height: auto;
+    background: rgb(197, 197, 197);
+    margin: 1em auto;
+    padding: 2em;
+    border-radius: 7px;
+}
+
+div>div{
+    color: white;
+    width: 32rem;
+    background: rgb(121, 121, 121);
+}

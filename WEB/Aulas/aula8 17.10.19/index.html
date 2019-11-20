@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+        div{
+            border: 2px solid red;
+            margin: 20px;
+            padding: 20px;
+            width: 200px;
+        }
+    </style>
+
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+    <script>
+
+            function loopFor(){
+                $('#divisaoloco').append('<br>');
+                for(i = 0; i <= 48; i++){
+                    $('#divisaoloco').append(i+", ");
+                }
+            }
+
+            function loopWhile(){
+                let al = 300;
+                $('#divisaoloco2').append('<br>');
+                while(al>100){
+                    $('#divisaoloco2').append('passou' + al + ", ");
+                    al--;
+                }
+            }
+
+            function limpaDiv(){
+                $('div').html('Seu Texto vai aqui');
+            }
+
+        $(function(){
+            $('#botao1').click(loopFor);
+            $('#botao2').click(loopWhile);
+
+            $('#botaolimpa').click(limpaDiv);
+
+        })
+    </script>
+</head>
+
+<body>
+    <button id="botaolimpa">Botão que limpa</button>
+
+    <div id="divisaoloco">Seu Texto vai aqui</div>
+
+    <button id="botao1">Botão que faz pirilimpimpim</button>
+
+    <div id="divisaoloco2">Seu Texto vai aqui</div>
+
+    <button id="botao2">Botão que faz pirilimpimpim</button>
+</body>
+</html>

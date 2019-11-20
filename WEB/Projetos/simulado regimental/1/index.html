@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="js/alunos.js"></script>
+        <link rel="stylesheet" href="main.css">
+
+        <script>
+            function escrever(n,rgm,nome,notaA1,notaA2){
+                console.log(aluno.rgm,aluno.nome,(aluno.notaA1+aluno.notaA2));
+                document.write('<div class="caixa" id="caixa'+n+'"><span class="rgm">RGM: '+rgm+' </span><br><br><span>Nome: '+nome+' </span><br><br><span>A1: '+notaA1+'</span><span> A2: '+notaA2+'</span></div>');
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Média de alunos!</h1>
+        </header>
+        <main>
+
+        <script>
+            
+            for(let aluno of alunos){
+                escrever(aluno.n, aluno.rgm, aluno.nome, aluno.notaA1, aluno.notaA2);
+
+                if((aluno.notaA1+aluno.notaA2)>=6){
+                    document.getElementById('caixa'+aluno.n).classList.add('aprovado');
+                }else{
+                    if((aluno.notaA1+aluno.notaA2)>=5.75){
+                        document.getElementById('caixa'+aluno.n).classList.add('af');
+                    }else{
+                        document.getElementById('caixa'+aluno.n).classList.add('reprovado');
+                    }
+                }
+            }
+
+        </script>
+            
+        </main>
+    </body>
+</html>

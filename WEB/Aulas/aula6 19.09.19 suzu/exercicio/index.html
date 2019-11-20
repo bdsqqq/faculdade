@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <script src="js/jquery-3.4.1.min.js"></script>
+
+        <script>
+            $(function(){
+
+                $("#btnCalcular").click(function(){
+                    var vParcial = parseFloat($("#inputParcial").val());
+                    var vExercicios = parseFloat($("#inputExercicios").val());
+                    var vProjeto = parseFloat($("#inputProjeto").val());
+                    var vRegimental = parseFloat($("#inputRegimental").val());
+                    var vMedia = 0;
+
+                    vMedia = calcMedia(vParcial,vExercicios,vProjeto,vRegimental);
+
+                    $("#rNome").text($("#inputNome").val());
+                    $("#rRgm").text($("#inputRgm").val());
+                    $("#rParcial").text(vParcial);
+                    $("#rExercicios").text(vExercicios);
+                    $("#rProjeto").text(vProjeto);
+                    $("#rRegimental").text(vRegimental);
+                    $("#rMedia").text(vMedia);
+
+                    
+                    $("#inputNome").val("");
+                    $("#inputRgm").val("");
+                    $("#inputParcial").val("");
+                    $("#inputExercicios").val("");
+                    $("#inputProjeto").val("");
+                    $("#inputRegimental").val("");
+                });
+
+
+                function calcMedia(x,y,z,a){
+                var media = (x+y+z+a)/4;
+
+                return media;
+            };
+            })
+
+            
+        </script>
+    </head>
+
+    <body>
+        <div class="wrapper"> <form>
+            Nome: <input type="text" value="Nome" id="inputNome"><br>
+            Rgm: <input type="text" value="Rgm" id="inputRgm"><br>
+            Parcial: <input type="text" value="Nota Parcial" id="inputParcial"><br>
+            Exercicios: <input type="text" value="Nota Exercicios" id="inputExercicios"><br>
+            Projeto: <input type="text" value="Nota Projeto" id="inputProjeto"><br>
+            Regimental: <input type="text" value="Nota Regimental" id="inputRegimental"><br>
+            <br><br><input type="button" value="Calcular" id="btnCalcular"><br>
+        </form>
+        <br>
+        <br>
+        <br>
+        <div id="resultado">
+            <span>Seu nome é:</span> <span id="rNome"></span><br>
+            <span>Seu rgm é:</span><span id="rRgm"></span><br>
+            <span>Sua nota parcial é:</span><span id="rParcial"></span><br>
+            <span>Sua nota exercicios é:</span><span id="rExercicios"></span><br>
+            <span>Sua nota projeto é:</span><span id="rProjeto"></span><br>
+            <span>Sua nota regimental é:</span><span id="rRegimental"></span><br>
+            <span>Sua média é:</span><span id="rMedia"></span>
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    <!--<script>
+        window.onload = function() {
+            var btnTrapezio = document.getElementById('btnTrapezio');
+            btnTrapezio.onclick = trapezio();
+
+            var btnImc = document.getElementById('btnImc');
+            btnImc.onclick = function(){
+                pPessoa = geth();
+                hPessoa = gethPessoa();
+
+                document.getElementById('resultadoImc').innerHTML = calcularImc(pPessoa, hPessoa);
+            };
+        }
+    </script>-->
+</head>
+
+<body>
+    <div>
+        <h2>Calcule a area de um trapézio</h2>
+        <form id="formularioTrapezio">
+            Altura: <input id="h" type="text" />
+            <br />
+            <br />
+            Base maior: <input id="b1" type="text" />
+            <br />
+            <br />
+            Base menor: <input id="b2" type="text" />
+            <br />
+            <br />
+            <button onclick="trapezio()" type="button" id="btnTrapezio">Calcular Area</button>
+        </form>
+        <br />
+        <div>
+            <h3>A area do Trapézio é:</h3>
+            <span id="resultadoTrapezio"></span>
+        </div>
+    </div>
+    <div>
+        <h2>Calcule o IMC</h2>
+        <form id="formularioImc">
+            Peso da Pessoa: <input id="pPessoa" type="text" />
+            <br />
+            <br />
+            Altura da Pessoa: <input id="hPessoa" type="text" />
+            <br />
+            <br />
+            <button onclick="imc()" type="button" id="btnImc">Calcular IMC</button>
+        </form>
+        <br />
+        <div>
+            <h3>Seu IMC é:</h3>
+            <span id="resultadoImc"></span>
+        </div>
+    </div>
+</body>
+
+</html>

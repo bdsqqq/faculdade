@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <script src="./js/jquery-3.4.1.min.js"></script>
+            <script>
+                $(function(){
+                    let i = 0;
+
+                    $('#buttonSalvar').click(function(){
+                        sessionStorage.setItem("Cliente"+i,$('#inputCliente').val());
+                        sessionStorage.setItem("Equipamento"+i,$('#inputEquipamento').val());
+                        sessionStorage.setItem("DataDeEntrada"+i,$('#inputDataDeEntrada').val());
+                        sessionStorage.setItem("inputDataDeEntrega"+i,$('#inputDataDeEntrega').val());
+                        sessionStorage.setItem("Garantia"+i,$('input[name=inputGarantia]:checked').val());
+                        i++
+                    });
+    
+    
+                    $('#buttonMostrar').click(function(){
+                        for(j = 0; j <= i; j++){
+                            $('#resultado').append(sessionStorage.getItem("Cliente"+j)+' cadastrou o equipamento '+sessionStorage.getItem("Equipamento"+j)+' na data de entrada '+sessionStorage.getItem("DataDeEntrada"+j)+' Com a data de entrega '+ sessionStorage.getItem("inputDataDeEntrega"+j)+' com o tipo de garantia '+ sessionStorage.getItem("Garantia"+j))
+                        }
+                    });
+
+                    $('#buttonLimparTudo').click(function(){
+                        sessionStorage.clear();
+                    });
+    
+    
+                })
+            
+            </script>
+    </head>
+
+    <body>
+        <h1>Cadastro de OS:</h1>
+        <form>
+            <span>Cliente</span><br>
+            <input type="text" name="inputCliente" id="inputCliente"><br><br>
+            <span>Equipamento</span><br>
+            <input type="text" name="inputEquipamento" id="inputEquipamento"><br><br>
+            <span>Data de entrada</span><br>
+            <input type="text" name="inputDataDeEntrada" id="inputDataDeEntrada"><br><br>
+            <span>Data de entrega</span><br>
+            <input type="text" name="inputDataDeEntrega" id="inputDataDeEntrega"><br><br>
+            <span>Tipo de garantia</span><br>
+            <input type="radio" name="inputGarantia" id="inputGarantia1" value="Sem garantia">Sem garantia
+            <input type="radio" name="inputGarantia" id="inputGarantia2" value="Fabricante">Fabricante
+            <input type="radio" name="inputGarantia" id="inputGarantia3" value="Extendida">Extendida
+        </form>
+
+        <input type="Button" id="buttonSalvar" value="Gravar">
+        <input type="Button" id="buttonMostrar" value="Mostrar">
+        <input type="Button" id="buttonLimparTudo" value="Limpar tudo">
+
+        <br>
+        <br>
+        <br>
+        <br> <span id="resultado"></span>
+    </body>
+</html>
