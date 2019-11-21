@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <title>Exemplo 1 JSON</title>
+    <meta charset="UTF-8">
+    <script src="js/jquery.min.js"></script>
+	<script>
+		localStorage.setItem("USD",0);
+		localStorage.setItem("EUR",0);
+		localStorage.setItem("BIT",0);
+		$(function(){
+			$("#converter").click(
+				function(){
+					if($("input[name=tipo]:checked").val() == "dolar"){v1=4.028};
+					if($("input[name=tipo]:checked").val() == "euro"){v1=4.467};
+					if($("input[name=tipo]:checked").val() == "bitcoin"){v1=30400.05};					
+					v2 = parseFloat($("#valor").val());
+					$("#convertido").val(v1*v2);
+				})
+			$("#comprar").click(
+				function(){
+					if($("input[name=tipo]:checked").val() == "dolar"){
+						v3 = parseFloat(localStorage.getItem("USD"));
+						v3 += parseFloat($("#convertido").val());
+						localStorage.setItem("USD",v3);
+						$("#mensagem").html("Parabéns você acabou de adquirir "+$("#valor").val()+" USD");
+						
+					}
+					if($("input[name=tipo]:checked").val() == "euro"){
+						v3 = parseFloat(localStorage.getItem("EUR"));
+						v3 += parseFloat($("#convertido").val());
+						localStorage.setItem("EUR",v3);
+						$("#mensagem").html("Parabéns você acabou de adquirir "+$("#valor").val()+" EUR");
+					}
+					if($("input[name=tipo]:checked").val() == "bitcoin"){
+						v3 = parseFloat(localStorage.getItem("BIT"));
+						v3 += parseFloat($("#convertido").val());
+						localStorage.setItem("BIT",v3);
+						$("#mensagem").html("Parabéns você acabou de adquirir "+$("#valor").val()+" BIT");
+					}
+				})
+			$("#total").click(
+				function(){
+					$("#usd").append(localStorage.getItem("USD"));
+					$("#eur").append(localStorage.getItem("EUR"));
+					$("#bit").append(localStorage.getItem("BIT"));
+				})
+		})
+	</script>
+</head>
+
+<body>
+	<form>
+		<fieldset style="width:400px">
+			<legend><h2>Compra de Moedas</h2></legend>
+			<strong>Tipo de moeda:</strong><br>
+			<input type="radio" name="tipo" value="dolar">USD R$ 4.028 - Dólar<br>
+			<input type="radio" name="tipo" value="euro">EUR R$ 4.467 - Euro<br>
+			<input type="radio" name="tipo" value="bitcoin">BTC R$ 30400.05 - Bitcoin<br>
+			<br><br>
+			<strong>Valor requisitado na moeda escolhida:</strong><br>
+			<input type="text" id="valor"><br><br>
+			<input type="button" id="converter" value="Converter"><br><br>
+			<strong>R$</strong>
+			<input type=text id="convertido"><br><br>
+			<hr>
+			<br><br>
+			<input type="button" id="comprar" value="Comprar"><br><br>
+			<span id="mensagem"></span>
+			<br><br><br>
+			<hr><br>
+			<input type="button" id="total" value="Total vendido no dia"><br><br>
+			<span id="usd"><strong>Total vendido em USD_______: </strong></span><br>
+			<span id="eur"><strong>Total vendido em EUR_______: </strong></span><br>
+			<span id="bit"><strong>Total vendido em BTC_______: </strong></span><br>
+		</fieldset>
+	</form>
+</body>
+
+</html>
