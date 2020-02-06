@@ -1,0 +1,36 @@
+Igor Bedesqui       21841632  
+Gabriel Uilian      21974535   
+Victor Coqueti      22321322
+
+
+Cliente (6 historias)
+    como cliente quero verificar os filmes disponiveis para realizar minha escolha
+    como cliente quero verificar as sessoes(horarios) disponiveis para cada filme para realizar minha escolha
+    como cliente quero verificar os assentos disponiveis para cada sessão para realizar minha escolha
+    como cliente quero utilizar metodos de pagamentos diversos para para realizar minha escolha
+    como cliente quero comprar assentos disponiveis para cada sessão para finalizar minha compra
+    como cliente quero me cadastrar para receber descontos e atualizações
+
+Vendedor Fisico (6 histórias)
+    como Vendedor Fisico quero verificar os filmes disponiveis para verificar as sessoes(horarios) disponiveis para cada filme
+    como Vendedor Fisico quero verificar as sessoes(horarios) disponiveis para cada filme para verificar os assentos disponiveis para cada sessão
+    como Vendedor Fisico quero verificar os assentos disponiveis para cada sessão para realizar uma venda
+
+    como Vendedor Fisico quero verificar e aplicar descontos elegiveis ao cliente para facilitar uma venda
+    como Vendedor Fisico quero verificar os metodos de pagamento disponiveis para realizar uma venda
+    como Vendedor Fisico quero cadastrar minhas vendas para atualizar assentos e sessões disponiveis
+
+
+Gerente (7 historias)
+    como Gerente quero cadastrar e alterar os filmes disponiveis para atualizar meu catalogo
+    como Gerente quero cadastrar e alterar as sessoes(horarios) disponiveis para cada filme para atender minha demanda
+    como gerente quero cadastrar e alterar salas e suas informações para atender futuras necessidades
+    como Gerente quero cadastrar e alterar promoções para gerar demanda
+    como Gerente quero cadastrar e alterar metodos de pagamento para facilitar vendas
+    como Gerente quero cadastrar e alterar produtos consumiveis para gerar vendas
+    como Gerente quero consultar vendas e suas informações para ajustar minhas demandas e decisões
+    
+Vendedor de Consumiveis (3 historias)
+    como Vendedor de consumiveis quero verificar os produtos e promoções disponiveis para realizar vendas
+    como Vendedor de consumiveis quero verificar os metodos de pagamento disponiveis para realizar vendas
+    como Vendedor de consumiveis quero cadastrar vendas para manter controle de estoque
