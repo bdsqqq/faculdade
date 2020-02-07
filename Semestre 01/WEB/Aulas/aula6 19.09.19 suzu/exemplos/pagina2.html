@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="js/jquery-3.4.1.min.js"></script>
+
+        <script>
+            $(function(){
+
+                $("#ajustarFonte").click(function(){
+                    var v = $("#valorFonte").val()+"pt";
+                    $(".bloco").css("font-size",v);
+                })
+
+                $("#calc").click(function(){
+                    var valor1 = parseFloat($("v1").val());
+                    var valor2 = parseFloat($("v2").val());
+                    var resultado = soma(valor1, valor2);
+                    $("#v3").val(resultado);
+                });
+            });
+
+            function soma(x,y){
+                return x+y;
+            };
+        </script>
+
+        <style>
+            div{
+                margin: 50px auto;
+                text-align: center;
+            }
+
+            .bloco{
+                transition: .3s ease-in-out;
+                background-color: red;
+                width: 200px;
+                height: 200px;
+                border: black solid 3px;
+                padding: 30px;
+                text-align: justify;
+            }
+
+            input{
+                width: 40px;
+            }
+        </style>
+    </head>
+
+    <body>
+       <form>
+           Digite o Tamanho da Fonte:
+       <br><input id="valorFonte" type="text">
+       <br><input id="ajustarFonte" type="button" value="Ajustar Fonte">
+       </form>
+
+        <div class="bloco" id="caixa1">
+            Este texto está dentro de uma DIV, pertence a uma CLASS "bloco" e tem o ID "caixa1"
+            <br>
+            <input id="v1" type="text"> +
+            <input id="v2" type="text"> =
+            <input id="v3" type="text">
+            <button type="button" id="calc">Calcular</button>
+        </div>
+    </body>
+</html>

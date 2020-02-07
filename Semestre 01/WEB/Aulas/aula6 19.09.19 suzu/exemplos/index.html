@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="js/jquery-3.4.1.min.js"></script>
+
+        <script>
+            $(function(){
+
+                $("#apendar").click(function(){
+                    $(".bloco").append("Este texto foi adicionado no final da tag");
+                });
+
+                $("#prependar").click(function(){
+                    $(".bloco").prepend("Este texto foi adicionado no começo da tag");
+                });
+
+                $("#htmlzar").click(function(){
+                    $(".bloco").html("<strong>Alterei o Conteudo HTML</strong>");
+                });
+
+                $("#btnEsconder").click(function(){
+                    $("#caixa1").hide();
+                });
+
+                $("#btnAparecer").click(function(){
+                    $("#caixa1").show();
+                });
+
+                $("#btnLimpar").click(function(){
+                    $("#caixa1").empty();
+                });
+
+                $("#btnRemover").click(function(){
+                    $("#caixa1").remove();
+                });
+
+                $("#btnSlideToggle").click(function(){
+                    $(".bloco").slideToggle();
+                });
+
+                $("#goiabona").click(function(){
+                    $("#caixa1").css("background-color","green");
+                    $("#caixa1").css("color","white");
+                });
+
+                $(".bloco").mouseover(function(){
+                    $(this).addClass("blocasso");
+                });
+
+                $(".bloco").mouseout(function(){
+                    $(this).removeClass("blocasso");
+                });
+            });
+        </script>
+
+        <style>
+            div{
+                margin: 50px auto;
+                text-align: center;
+            }
+
+            .bloco{
+                transition: .3s ease-in-out;
+                background-color: red;
+                width: 200px;
+                height: 200px;
+                border: black solid 3px;
+                padding: 30px;
+                text-align: justify;
+            }
+
+            .blocasso{
+                background-color: yellow;
+                width: 200px;
+                height: 300px;
+                border: black solid 3px;
+                padding: 30px;
+                text-align: justify;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div>
+            <span>
+                <button id="apendar">Função append</button>
+                <button id="prependar">Função prepend</button>
+                <button id="htmlzar">Função html</button>
+            </span>
+        </div>
+        <div class="bloco" id="caixa1">
+            Este texto está dentro de uma DIV, pertence a uma CLASS "bloco" e tem o ID "caixa1"
+        </div>
+
+        <div>
+            <span>
+                <button id="btnEsconder">Esconder</button>
+                <button id="btnAparecer">Aparecer</button>
+                <button id="btnLimpar">Limpar</button>
+                <button id="btnRemover">Remover</button>
+                <button id="btnSlideToggle">Slide Toggle</button>
+            </span>
+        </div>
+
+        <div class="bloco" id="caixa2">
+                Este texto está dentro de uma DIV, pertence a uma CLASS "bloco" e tem o ID "caixa2"
+        </div>
+
+        <div>
+            <span>
+                <button id="goiabona">FUNÇÃO INSANA</button>
+                <button id="goiabassa">FUNÇÃO MAIS INSANA AINDA</button>
+             </span>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+        div{
+            border: 2px solid red;
+            margin: 20px;
+            padding: 20px;
+            width: 200px;
+        }
+    </style>
+
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+    <script>
+
+        $(function(){
+            
+            $('#botaolimpa').click(limpaDiv);
+
+            function limpaDiv(){
+                $('div').html('Seu Texto vai aqui');
+            }
+
+            fruta = [];
+            fruta[0] = "abacate";
+            fruta[1] = "tomate";
+            fruta[2] = "berinjela";
+            fruta[3] = "morango";
+            fruta[4] = "goiabinha";
+
+            for(i=0; i<fruta.length; i++)
+            $('#divisaoloco2').append('<br>'+fruta[i]);
+        })
+        
+
+
+    </script>
+</head>
+
+<body>
+    <button id="botaolimpa">Botão que limpa</button>
+
+    <div id="divisaoloco2">Seu Texto vai aqui</div>
+
+    <button id="botao1">Frutas até indice 2</button>
+
+
+</body>
+</html>

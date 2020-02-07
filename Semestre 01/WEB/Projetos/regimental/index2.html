@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Regimental 2</title>
+
+    <script>
+        window.onload = () =>{
+            console.log('funcionando');
+            localStorage.setItem('TotalImposto', 0)
+
+            const botoes = {
+                "btnImposto" : document.getElementById('btnImposto'),
+                "btnTotalImpostos" : document.getElementById('btnTotalImpostos')
+            }
+
+            const campos = {
+                "inputLucro" : document.getElementById('inputLucro'),
+                "inputImpostoAPagar" : document.getElementById('inputImpostoAPagar'),
+                "resultado" : document.getElementById('resultado'),
+            }
+
+            console.log(botoes, campos);
+
+
+            botoes.btnImposto.onclick = () =>{
+                let tipoImposto = document.querySelector('input[name="tributacao"]:checked').value;
+                let lucro = campos.inputLucro.value;
+                let imposto = calculaImposto(lucro, tipoImposto)
+                campos.inputImpostoAPagar.value = imposto;
+                
+                localStorage.setItem('TotalImposto', parseFloat(localStorage.getItem('TotalImposto'))+imposto)
+                console.log(tipoImposto, lucro);
+            }
+
+            botoes.btnTotalImpostos.onclick = () =>{
+                campos.resultado.textContent = localStorage.getItem('TotalImposto')
+            }
+        }
+
+        function calculaImposto(lucro, tipoImposto){
+            if(tipoImposto == 'SN'){
+                return lucro*0.05
+            }else{
+                if(tipoImposto == 'LR'){
+                    return lucro*0.12
+                }else{
+                    return lucro*0.17
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Imposto a pagar:</h1>
+
+    <span>Lucro: </span>
+    <input type="text" id="inputLucro">
+    <br><br><br>
+
+    <span>Tributação: </span><br><br>
+    <input type="radio" name="tributacao" id="radioTributacao1" value="SN"><span>Simples Nacional - 5% do Lucro</span><br>
+    <input type="radio" name="tributacao" id="radioTributacao2" value="LR"><span>Lucro real 12% do Lucro</span><br>
+    <input type="radio" name="tributacao" id="radioTributacao3" value="LP"><span>Lucro Presumido 17% do Lucro</span><br>
+
+    <input type="button" value="Imposto" id="btnImposto">
+    <br><br><br>
+
+    <span>Imposto a pagar: </span>
+    <input type="text" id="inputImpostoAPagar"><br><br>
+
+    <input type="button" value="Total de Impostos" id="btnTotalImpostos">
+    <br><br><br>
+
+    <div id="resultado"></div>
+
+</body>
+</html>

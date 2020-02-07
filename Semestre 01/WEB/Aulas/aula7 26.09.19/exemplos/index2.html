@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+        <script>
+            $(function(){
+
+                $("#btnCalcular").click(function(){
+                    $("#resultado").empty();
+
+                    if( $("#num1").val() == null || $("#num2").val() == null || $("#num1").val() == "" || $("#num2").val() == "" ){
+                       
+                        $("#resultado").text("Valor nulo animal");
+                    }else{
+
+                        var tipo_opera = $("input[name=opera]:checked").val();
+                        var operacao = parseInt(tipo_opera)
+                        var v1 = parseFloat( $("#num1").val()); 
+                        var v2 = parseFloat( $("#num2").val());
+                        
+                        switch(operacao){
+                            case 1:
+                                $("#resposta").text(v1+v2);
+                                break;
+                            case 2:
+                                $("#resposta").text(v1-v2);
+                                break;
+                            default:
+                            $("#resposta").text("Existe um problema");
+                        }
+                    }
+
+                })  
+            });
+        </script>
+    
+    
+    </head>
+    <body>
+        <form>
+            Valor 1: <input type="text" id="num1"> <br>
+            Valor 2: <input type="text" id="num2"><br><br>
+            <input name="opera" type="radio" id="ad" value="1"> Adição
+            <input name="opera" type="radio" id="sub" value="2"> Subtração
+            <br><br>
+            <span>Resultado:</span> <span id="resultado"></span>
+            <br><br>
+            <input type="submit" id="btnCalcular" value="Calcular">
+
+        </form>
+    </body>
+</html>
