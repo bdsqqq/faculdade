@@ -5,7 +5,7 @@ CREATE TABLE tb_departamento(
 );
 
 CREATE TABLE tb_projeto(
-    cd_projeto INTEGER,
+    cd_projeto NUMBER(5),
     nm_projeto VARCHAR2(300),
     dt_ini_projeto DATE,
     dt_fin_projeto DATE,
