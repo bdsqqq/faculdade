@@ -61,4 +61,20 @@ public class Pilha {
             System.out.println("Stack Empty");
         }
     }
+    
+    public String returnPilha(){
+        if(!isEmpty()){
+            String temp = "";
+            for(int i = 0; i <=posicaoTopo; i++){
+                if(i < posicaoTopo){
+                    temp += memo[i]+", ";
+                }else{
+                    temp += memo[i];
+                }
+            }
+            return ("Pilha = [ "+temp+" ]");
+        } else{
+            return "Stack Empty" ;
+        }
+    };
 }
