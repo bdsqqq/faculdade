@@ -19,7 +19,19 @@ public class Npr {
             if(ch == ')'){
                 saida += p.pop();
             }
-        };
+        }
         return saida;
+    }
+    
+    public static int prio(char op){
+        int resp = 0;
+        switch(op){
+            case'(': resp = 1; break;
+            case'+': resp = 2; break;
+            case'-': resp = 2; break;
+            case'*': resp = 3; break;
+            case'/': resp = 3; break;
+        }
+        return resp;
     }
 }
