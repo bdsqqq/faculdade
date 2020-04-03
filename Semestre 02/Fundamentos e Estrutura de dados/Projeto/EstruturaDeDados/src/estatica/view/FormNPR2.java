@@ -11,12 +11,12 @@ import estatica.aplicacoes.Npr;
  *
  * @author logonpta
  */
-public class FormNPR extends javax.swing.JFrame {
+public class FormNPR2 extends javax.swing.JFrame {
 
     /**
      * Creates new form FormNPR
      */
-    public FormNPR() {
+    public FormNPR2() {
         initComponents();
     }
 
@@ -34,7 +34,7 @@ public class FormNPR extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtNPR = new javax.swing.JTextField();
         btnConverter = new javax.swing.JButton();
-        txtResultado = new javax.swing.JLabel();
+        txtResult = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,7 +54,7 @@ public class FormNPR extends javax.swing.JFrame {
 
         jLabel2.setText("Notação Polonesa Reversa");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 130, 170, 30);
+        jLabel2.setBounds(30, 130, 150, 30);
 
         txtNPR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,9 +73,9 @@ public class FormNPR extends javax.swing.JFrame {
         getContentPane().add(btnConverter);
         btnConverter.setBounds(30, 100, 100, 23);
 
-        txtResultado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(txtResultado);
-        txtResultado.setBounds(260, 100, 100, 90);
+        txtResult.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(txtResult);
+        txtResult.setBounds(240, 110, 100, 90);
 
         jButton1.setText("Calcular");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -84,9 +84,9 @@ public class FormNPR extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(260, 60, 100, 23);
+        jButton1.setBounds(250, 60, 73, 23);
 
-        setSize(new java.awt.Dimension(442, 264));
+        setSize(new java.awt.Dimension(402, 292));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -99,7 +99,7 @@ public class FormNPR extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNPRActionPerformed
 
     private void btnConverterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConverterActionPerformed
-        String npr = Npr.toNPR(txtInfixa.getText());
+        String npr = Npr.toNPR2(txtInfixa.getText());
         
         txtNPR.setText(npr);
     }//GEN-LAST:event_btnConverterActionPerformed
@@ -108,7 +108,7 @@ public class FormNPR extends javax.swing.JFrame {
         float npr;
         npr = Npr.solveNPR(txtNPR.getText());
         
-        txtResultado.setText(npr+"");
+        txtResult.setText(npr+"");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -153,6 +153,6 @@ public class FormNPR extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txtInfixa;
     private javax.swing.JTextField txtNPR;
-    private javax.swing.JLabel txtResultado;
+    private javax.swing.JLabel txtResult;
     // End of variables declaration//GEN-END:variables
 }
