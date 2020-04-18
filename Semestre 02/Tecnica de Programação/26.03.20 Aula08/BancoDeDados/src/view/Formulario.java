@@ -5,6 +5,10 @@
  */
 package view;
 
+import bean.AlunoBean;
+import classes.Aluno;
+import dao.AlunoDAO;
+
 /**
  *
  * @author igor
@@ -16,6 +20,15 @@ public class Formulario extends javax.swing.JFrame {
      */
     public Formulario() {
         initComponents();
+    }
+    
+    private Aluno montaAluno() {
+        Aluno aluno = new Aluno();
+        aluno.setNome(txtNome.getText());
+        aluno.setRGM(txtRgm.getText());
+        aluno.setNota1(Float.parseFloat(txtNota1.getText()));
+        aluno.setNota2(Float.parseFloat(txtNota2.getText()));
+        return aluno;
     }
 
     /**
@@ -38,10 +51,12 @@ public class Formulario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblMensagem = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnSair = new javax.swing.JButton();
+        btnAlterar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
         btnCalcular = new javax.swing.JButton();
+        btnSair1 = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -107,24 +122,57 @@ public class Formulario extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Comandos"));
         jPanel2.setLayout(null);
 
-        btnSair.setText("Sair");
-        jPanel2.add(btnSair);
-        btnSair.setBounds(20, 110, 100, 23);
+        btnAlterar.setText("Alterar");
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnAlterar);
+        btnAlterar.setBounds(20, 150, 100, 23);
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnSalvar);
         btnSalvar.setBounds(20, 20, 100, 23);
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnPesquisar);
         btnPesquisar.setBounds(20, 50, 100, 23);
 
         btnCalcular.setText("Calcular");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnCalcular);
         btnCalcular.setBounds(20, 80, 100, 23);
 
+        btnSair1.setText("Sair");
+        jPanel2.add(btnSair1);
+        btnSair1.setBounds(20, 210, 100, 23);
+
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnExcluir);
+        btnExcluir.setBounds(20, 180, 100, 23);
+
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(270, 120, 150, 160);
+        jPanel2.setBounds(270, 30, 150, 250);
 
         setSize(new java.awt.Dimension(460, 349));
         setLocationRelativeTo(null);
@@ -145,6 +193,97 @@ public class Formulario extends javax.swing.JFrame {
     private void txtNota1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNota1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNota1ActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        if (txtRgm.getText().equals("")) {
+            lblMensagem.setText("Preencha o RGM do aluno");
+        } else if (txtNome.getText().equals("")) {
+            lblMensagem.setText("Preencha o nome do aluno");
+        } else if (txtNota1.getText().equals("")) {
+            lblMensagem.setText("Preencha a nota 1 do aluno");
+        } else if (txtNota2.getText().equals("")) {
+            lblMensagem.setText("Preencha a nota 2 do aluno");
+        } else {
+            Aluno aluno = montaAluno();
+            String resp = new AlunoDAO().gravarAluno(aluno);
+            if (resp.equals("OK")) {
+                lblMensagem.setText("Aluno Gravado com sucesso");
+            } else {
+                lblMensagem.setText((resp));
+            }
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        if (txtRgm.getText().equals("")) {
+            lblMensagem.setText("Preencha o RGM do aluno");
+        } else {
+            Aluno aluno = new AlunoDAO().getAluno(txtRgm.getText());
+            if (aluno == null) {
+                txtNome.setText("");
+                txtNota1.setText("");
+                txtNota2.setText("");
+                lblMensagem.setText("Não encontrado");
+            } else {
+                txtNome.setText(aluno.getNome());
+                txtNota1.setText(aluno.getNota1() + "");
+                txtNota2.setText(aluno.getNota2() + "");
+                lblMensagem.setText("Aluno encontrado");
+            }
+        }
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        if (txtRgm.getText().equals("")) {
+            lblMensagem.setText("Preencha o RGM do aluno");
+        } else if (txtNome.getText().equals("")) {
+            lblMensagem.setText("Preencha o nome do aluno");
+        } else if (txtNota1.getText().equals("")) {
+            lblMensagem.setText("Preencha a nota 1 do aluno");
+        } else if (txtNota2.getText().equals("")) {
+            lblMensagem.setText("Preencha a nota 2 do aluno");
+        } else {
+            float media = new AlunoBean().calculaMedia(
+                    Float.parseFloat(txtNota1.getText()),
+                    Float.parseFloat(txtNota2.getText())
+            );
+            lblMensagem.setText(media+"");
+        }
+    }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        if (txtRgm.getText().equals("")) {
+            lblMensagem.setText("Preencha o RGM do aluno");
+        } else if (txtNome.getText().equals("")) {
+            lblMensagem.setText("Preencha o nome do aluno");
+        } else if (txtNota1.getText().equals("")) {
+            lblMensagem.setText("Preencha a nota 1 do aluno");
+        } else if (txtNota2.getText().equals("")) {
+            lblMensagem.setText("Preencha a nota 2 do aluno");
+        } else {
+            Aluno aluno = montaAluno();
+            String resp = new AlunoDAO().alterarAluno(aluno);
+            if (resp.equals("OK")) {
+                lblMensagem.setText("Aluno Gravado com sucesso");
+            } else {
+                lblMensagem.setText((resp));
+            }
+        }
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        if (txtRgm.getText().equals("")) {
+            lblMensagem.setText("Preencha o RGM do aluno");
+        } else {
+            Aluno aluno = montaAluno();
+            String resp = new AlunoDAO().excluirAluno(aluno);
+            if (resp.equals("OK")) {
+                lblMensagem.setText("Aluno Gravado com sucesso");
+            } else {
+                lblMensagem.setText((resp));
+            }
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,9 +321,11 @@ public class Formulario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCalcular;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnPesquisar;
-    private javax.swing.JButton btnSair;
+    private javax.swing.JButton btnSair1;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
